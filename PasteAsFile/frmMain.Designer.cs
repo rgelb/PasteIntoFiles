@@ -40,9 +40,6 @@
             this.txtCurrentLocation = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBrowseForFolder = new System.Windows.Forms.Button();
-            this.lblMe = new System.Windows.Forms.Label();
-            this.lblWebsite = new System.Windows.Forms.Label();
-            this.lblHelp = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgContent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +74,7 @@
             this.lblFileName.AutoSize = true;
             this.lblFileName.Location = new System.Drawing.Point(13, 13);
             this.lblFileName.Name = "lblFileName";
-            this.lblFileName.Size = new System.Drawing.Size(56, 13);
+            this.lblFileName.Size = new System.Drawing.Size(55, 13);
             this.lblFileName.TabIndex = 4;
             this.lblFileName.Text = "Filename :";
             // 
@@ -93,7 +90,7 @@
             this.lblExt.AutoSize = true;
             this.lblExt.Location = new System.Drawing.Point(234, 13);
             this.lblExt.Name = "lblExt";
-            this.lblExt.Size = new System.Drawing.Size(61, 13);
+            this.lblExt.Size = new System.Drawing.Size(59, 13);
             this.lblExt.TabIndex = 6;
             this.lblExt.Text = "Extension :";
             // 
@@ -124,11 +121,11 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.btnSave.Location = new System.Drawing.Point(108, 95);
+            this.btnSave.Location = new System.Drawing.Point(175, 95);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(135, 30);
             this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -145,7 +142,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "Current Location :";
             // 
@@ -159,48 +156,12 @@
             this.btnBrowseForFolder.UseVisualStyleBackColor = true;
             this.btnBrowseForFolder.Click += new System.EventHandler(this.btnBrowseForFolder_Click);
             // 
-            // lblMe
-            // 
-            this.lblMe.AutoSize = true;
-            this.lblMe.ForeColor = System.Drawing.Color.Gray;
-            this.lblMe.Location = new System.Drawing.Point(200, 134);
-            this.lblMe.Name = "lblMe";
-            this.lblMe.Size = new System.Drawing.Size(122, 13);
-            this.lblMe.TabIndex = 12;
-            this.lblMe.Text = "© Eslam Hamouda 2014";
-            this.lblMe.Click += new System.EventHandler(this.lblMe_Click);
-            // 
-            // lblWebsite
-            // 
-            this.lblWebsite.AutoSize = true;
-            this.lblWebsite.ForeColor = System.Drawing.Color.Gray;
-            this.lblWebsite.Location = new System.Drawing.Point(12, 134);
-            this.lblWebsite.Name = "lblWebsite";
-            this.lblWebsite.Size = new System.Drawing.Size(63, 13);
-            this.lblWebsite.TabIndex = 13;
-            this.lblWebsite.Text = "eslamx.com";
-            this.lblWebsite.Click += new System.EventHandler(this.lblWebsite_Click);
-            // 
-            // lblHelp
-            // 
-            this.lblHelp.AutoSize = true;
-            this.lblHelp.Cursor = System.Windows.Forms.Cursors.Help;
-            this.lblHelp.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.lblHelp.Location = new System.Drawing.Point(295, 102);
-            this.lblHelp.Name = "lblHelp";
-            this.lblHelp.Size = new System.Drawing.Size(15, 17);
-            this.lblHelp.TabIndex = 14;
-            this.lblHelp.Text = "?";
-            this.lblHelp.Click += new System.EventHandler(this.lblHelp_Click);
-            // 
             // frmMain
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 156);
-            this.Controls.Add(this.lblHelp);
-            this.Controls.Add(this.lblWebsite);
-            this.Controls.Add(this.lblMe);
+            this.ClientSize = new System.Drawing.Size(324, 141);
             this.Controls.Add(this.btnBrowseForFolder);
             this.Controls.Add(this.txtCurrentLocation);
             this.Controls.Add(this.label1);
@@ -238,9 +199,6 @@
         private System.Windows.Forms.TextBox txtCurrentLocation;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBrowseForFolder;
-        private System.Windows.Forms.Label lblMe;
-        private System.Windows.Forms.Label lblWebsite;
-        private System.Windows.Forms.Label lblHelp;
     }
 }
 
