@@ -5,6 +5,10 @@ Paste As File
 
 ----------------
 
++ Forked the code from EslaMx7/PasteIntoFiles
++ Removed extraneous information, added ability to use the keyboard
++ Basically streamlined for the purpose of my use case: integration with [Remote Messages](http://www.remotemessages.com).
+
 + Supports  Any type of Text, Source Code , Images.
 + Change the current saving location or type it yourself.
 + Shortcut in Context Menu (Right Click)
