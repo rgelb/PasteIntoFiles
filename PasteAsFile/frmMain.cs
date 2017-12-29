@@ -30,16 +30,25 @@ namespace PasteAsFile
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
-            txtFilename.Text = DateTime.Now.ToString("dd-MM-yyyy HH-mm");
-            txtCurrentLocation.Text = CurrentLocation ?? @"C:\";
+            bool skipUI = true; // assume we skip the UI
 
             if (Registry.GetValue(@"HKEY_CLASSES_ROOT\Directory\Background\shell\Paste As File\command", "", null) == null)
             {
                 if (MessageBox.Show("Seems that you are running this application for the first time,\nDo you want to Register it with your system Context Menu ?", "Paste As File", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     Program.RegisterApp();
+                    skipUI = false;
                 }
             }
+
+            // bring up the UI if Shift Key is pressed.
+            if (Control.ModifierKeys == Keys.Shift)
+            {
+                skipUI = false;
+            }
+
+            txtFilename.Text = DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss");
+            txtCurrentLocation.Text = CurrentLocation ?? @"C:\";
 
             if (Clipboard.ContainsText())
             {
@@ -47,21 +56,33 @@ namespace PasteAsFile
                 comExt.SelectedItem = "txt";
                 IsText = true;
                 txtContent.Text = Clipboard.GetText();
-                return;
             }
-
-            if (Clipboard.ContainsImage())
+            else if (Clipboard.ContainsImage())
             {
                 lblType.Text = "Image";
                 comExt.SelectedItem = "png";
                 imgContent.Image = Clipboard.GetImage();
-                return;
+            }
+            else
+            {
+                lblType.Text = "Unknown File";
+                btnSave.Enabled = false;
+                skipUI = false;
             }
 
-            lblType.Text = "Unknown File";
-            btnSave.Enabled = false;
-            
-            
+            if (skipUI)
+            {
+                btnSave_Click(null, null);
+                Environment.Exit(0);
+            }
+            else
+            {
+                // since Shift key was pressed - it's likely that the app opened in background
+                this.WindowState = FormWindowState.Minimized;
+                this.Show();
+                this.WindowState = FormWindowState.Normal;
+            }
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -102,11 +123,11 @@ namespace PasteAsFile
                 this.Text += " : Image Saved :)";
             }
 
-            Task.Factory.StartNew(() =>
-            {
-                Thread.Sleep(1000);
-                Environment.Exit(0);
-            });
+            //Task.Factory.StartNew(() =>
+            //{
+            //    Thread.Sleep(1000);
+            //    Environment.Exit(0);
+            //});
         }
 
         private void btnBrowseForFolder_Click(object sender, EventArgs e)
